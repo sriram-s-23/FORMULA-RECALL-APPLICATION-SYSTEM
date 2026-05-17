@@ -221,3 +221,62 @@ public class QuizFrame extends JFrame {
     }
 }
 
+//database
+CREATE DATABASE eee_formula;
+USE eee_formula;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    password VARCHAR(50)
+);
+
+INSERT INTO users VALUES (1,'student','1234');
+
+CREATE TABLE subjects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+INSERT INTO subjects (name) VALUES
+('Electrical Machines'),
+('Power Systems'),
+('Power Electronics');
+
+CREATE TABLE questions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    subject_id INT,
+    question TEXT,
+    option1 TEXT,
+    option2 TEXT,
+    option3 TEXT,
+    option4 TEXT,
+    answer INT
+);
+
+-- ELECTRICAL MACHINES
+INSERT INTO questions VALUES
+(1,1,'What is the formula for synchronous speed?','Ns=120f/P','Ns=P/f','Ns=60f','Ns=120/P',1),
+(2,1,'Motor running at 1440 rpm, synchronous speed is?','1200','1500','1800','1000',2),
+(3,1,'Which motor needs starter?','Synchronous','Induction','DC','Stepper',2),
+(4,1,'Main loss in induction motor is?','Copper','Iron','Mechanical','Stray',1),
+(5,1,'Slip increases when load','Decreases','Remains same','Increases','Zero',3);
+
+-- POWER SYSTEMS
+INSERT INTO questions VALUES
+(6,2,'Why power is transmitted at high voltage?','Reduce current','Increase loss','Increase current','Reduce voltage',1),
+(7,2,'Line voltage in star is','Vph','√3Vph','Vph/√3','2Vph',2),
+(8,2,'Load factor is','Max load/Avg load','Avg load/Max load','Load/Energy','Energy/Load',2),
+(9,2,'Power loss formula is','VI','I²R','V²/R','IR',2),
+(10,2,'Which loss depends on current?','Core loss','Copper loss','Dielectric','Mechanical',2);
+
+-- POWER ELECTRONICS
+INSERT INTO questions VALUES
+(11,3,'Device that converts AC to DC?','Inverter','Rectifier','Chopper','SMPS',2),
+(12,3,'Full wave rectifier output?','Vm/π','2Vm/π','Vm','Vm/2',2),
+(13,3,'SCR is used for?','Rectification','Control','Switching','All',4),
+(14,3,'Ripple factor indicates','AC content','DC content','Power','Voltage',1),
+(15,3,'Inverter converts','DC to AC','AC to DC','AC to AC','DC to DC',1);
+select*from questions;
+select*from subjects;
+
